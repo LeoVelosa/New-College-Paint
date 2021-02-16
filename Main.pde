@@ -4,13 +4,13 @@
   color col;
   //This is where the drawing takes place. Due to us needing a background constantly going through
   //to make the circle not spawn 1m circles when we drag it around, the work around to this is going
-  //to be we spawn the circle in the front, reduce opacity of the workspace layer by 50%, so that we
-  //can see where the circle is going to appear, dispite the circle being on the bottom layer of the
-  //picture. Then we take the cordinates when we stop dragging our mouse, and plot the circle in the
-  //same cordinates as circle before we let go. This method will also apply to the rectangle, curve,
-  //and selection. This hasn't been completed yet for anything though.
+  //to be we spawn the circle in the front, reduce opacity of the workspace layer by 50%-25%, so that
+  //we can see where the circle is going to appear, dispite the circle being on the bottom layer of
+  //the picture. Then we take the cordinates when we stop dragging our mouse, and plot the circle in
+  //the same cordinates as circle before we let go. This method will also apply to the rectangle, curve,
+  //and selection. This has been completed for the circle function.
   PGraphics workspace;
-
+  PGraphics toolbar;
 
 
   void setup(){
@@ -24,6 +24,7 @@
   col=color(0, 0, 0);
   //Layer must be here. This creates our drawing workspace
   workspace= createGraphics(width, height);
+  toolbar= createGraphics(width, height);
   }  
 
 
@@ -72,8 +73,8 @@ void toolbarCords(){
   RRheight=height;
 
   //Top
-  TRposX=-1;
-  TRposY=-1;
+  TRposX=-width/750;
+  TRposY=-height/500;
   TRwidth=width+2;
   TRheight=height/20;
 }

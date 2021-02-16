@@ -9,16 +9,24 @@ boolean drag;
 
 //If you click on anywhere within the whitespace meant for drawing
  void mousePressed(){
+   inCanvasDrawspace();
+
+ }
+ 
+// Once you have finished clicking anywhere
+ void mouseReleased(){
+   drag=false;
+   tinter=255;   
+ }
+ 
+ void inCanvasDrawspace(){
    if(mouseX>LRwidth-LRposX && mouseX<RRposX && mouseY> TRheight-TRposY && mouseY<BRposY){
    if(tool==2){
    mouseRecordX=mouseX;
    mouseRecordY=mouseY;
    }
      drag=true;
-   }
+   } 
  }
  
-// Once you have finished clicking anywhere
- void mouseReleased(){
-   drag=false;
- }
+ 
